@@ -1,0 +1,60 @@
+<header class="navbar">
+  <nav class="navbar-container" aria-label="Main navigation">
+    <a routerLink="/" class="logo-link" aria-label="Healthy Recipe Finder - Home">
+      <img ngSrc="/assets/images/logo.svg" alt="" width="27" height="32" class="logo" priority />
+    </a>
+
+    <ul class="nav-links-desktop">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="nav-link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <app-button class="nav-button-desktop">Browse recipes</app-button>
+
+    <button
+      type="button"
+      class="mobile-menu-toggle"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+      (click)="toggleMobileMenu()"
+    >
+      <img ngSrc="/assets/images/icon-hamburger-menu.svg" alt="" width="18" height="16" />
+    </button>
+  </nav>
+
+  @if (isMobileMenuOpen()) {
+    <section id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-content">
+        @for (link of navLinks; track link.path) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active-mobile"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="mobile-nav-link"
+            (click)="closeMobileMenu()"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <div class="mobile-button-container">
+          <app-button class="mobile-button" (click)="closeMobileMenu()"> Browse recipes </app-button>
+        </div>
+      </div>
+    </section>
+  }
+</header>
+
+@if (isMobileMenuOpen()) {
+  <div class="mobile-overlay" aria-hidden="true" (click)="closeMobileMenu()"></div>
+}
