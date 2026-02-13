@@ -1,0 +1,89 @@
+<div class="recipe-detail-page">
+  @if (recipe(); as recipe) {
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li>
+          <a routerLink="/recipes" class="breadcrumb-link">Recipes</a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-current">{{ recipe.title }}</li>
+      </ol>
+    </nav>
+
+    <article class="recipe-article">
+      <div class="recipe-layout">
+        <div class="recipe-image-section">
+          <div class="recipe-image-container">
+            <img
+              [ngSrc]="recipe.image.large"
+              [alt]="recipe.title"
+              fill
+              priority
+              class="recipe-image"
+            />
+          </div>
+        </div>
+
+        <div class="recipe-info-section">
+          <h1 class="recipe-title">{{ recipe.title }}</h1>
+          <p class="recipe-overview">{{ recipe.overview }}</p>
+          <div class="recipe-meta">
+            <div class="meta-item">
+              <img ngSrc="/assets/images/icon-servings.svg" alt="" width="16" height="16" />
+              <span>Servings: {{ recipe.servings }}</span>
+            </div>
+            <div class="meta-item">
+              <img ngSrc="/assets/images/icon-prep-time.svg" alt="" width="16" height="16" />
+              <span>Prep: {{ recipe.prepMinutes }} mins</span>
+            </div>
+            <div class="meta-item">
+              <img ngSrc="/assets/images/icon-cook-time.svg" alt="" width="16" height="16" />
+              <span>Cook: {{ recipe.cookMinutes }} mins</span>
+            </div>
+          </div>
+
+          <section class="ingredients-section">
+            <h2 class="section-heading">Ingredients:</h2>
+            <ul class="ingredients-list">
+              @for (ingredient of recipe.ingredients; track ingredient) {
+                <li class="ingredient-item">
+                  <span>{{ ingredient }}</span>
+                </li>
+              }
+            </ul>
+          </section>
+
+          <section class="instructions-section">
+            <h2 class="section-heading">Instructions:</h2>
+            <ol class="instructions-list">
+              @for (instruction of recipe.instructions; track instruction) {
+                <li class="instruction-item">
+                  <span>{{ instruction }}</span>
+                </li>
+              }
+            </ol>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    @if (relatedRecipes().length > 0) {
+      <section class="more-recipes-section">
+        <h2 class="more-recipes-title">More recipes</h2>
+        <div class="more-recipes-grid" role="list" aria-label="More recipes">
+          @for (relatedRecipe of relatedRecipes(); track relatedRecipe.id) {
+            <div role="listitem">
+              <app-recipe-card [recipe]="relatedRecipe" />
+            </div>
+          }
+        </div>
+      </section>
+    }
+  } @else {
+    <div class="not-found">
+      <h1 class="not-found-title">Recipe not found</h1>
+      <p class="not-found-text">The recipe you're looking for doesn't exist.</p>
+      <a routerLink="/recipes" class="back-link">Browse all recipes</a>
+    </div>
+  }
+</div>

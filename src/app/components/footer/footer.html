@@ -1,0 +1,23 @@
+<footer class="footer">
+  <section class="footer-container">
+    <nav class="footer-nav" aria-label="Social media links">
+      <ul class="social-links">
+        @for (social of socialMediaLinks; track social.url) {
+          <li>
+            <a
+              [href]="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="social.label"
+              class="social-link"
+            >
+              <img [ngSrc]="social.icon" [alt]="social.label" width="22" height="22" />
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <p class="footer-text">Made with ❤️ and 🥑</p>
+  </section>
+</footer>

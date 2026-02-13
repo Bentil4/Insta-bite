@@ -1,0 +1,25 @@
+.button {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  gap: 0.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+}
+
+.button:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 2px;
+  padding: 10px 29px;
+  outline-color: var(--color-accent-orange);
+}

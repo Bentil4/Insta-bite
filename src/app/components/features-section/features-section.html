@@ -1,0 +1,22 @@
+<section class="features-section" aria-labelledby="features-title">
+  <h2 id="features-title" class="features-title">What you'll get</h2>
+
+  <div class="features-grid">
+    @for (feature of featuresList; track feature.title) {
+      <article class="feature-card">
+        <div class="feature-icon-container">
+          <img [ngSrc]="feature.icon" [alt]="''" width="40" height="40" />
+        </div>
+
+        <div class="feature-content">
+          <h3 class="feature-title">
+            {{ feature.title }}
+          </h3>
+          <p class="feature-description">
+            {{ feature.description }}
+          </p>
+        </div>
+      </article>
+    }
+  </div>
+</section>

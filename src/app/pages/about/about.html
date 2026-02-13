@@ -1,0 +1,93 @@
+<div class="about-page">
+  <section class="mission-section" aria-labelledby="mission-title">
+    <div class="mission-content">
+      <span class="mission-badge">Our mission</span>
+      <h1 id="mission-title" class="mission-title">
+        Help more people cook nourishing meals, more often.
+      </h1>
+      <div class="mission-text">
+        <p class="text-preset-6">
+          Healthy Recipe Finder was created to prove that healthy eating can be convenient,
+          affordable, and genuinely delicious.
+        </p>
+        <p class="text-preset-6">
+          We showcase quick, whole-food dishes that anyone can master—no fancy equipment, no
+          ultra-processed shortcuts—just honest ingredients and straightforward steps.
+        </p>
+      </div>
+    </div>
+    <img
+      ngSrc="/assets/images/image-about-our-mission-large.webp"
+      alt="image-about-our-mission-large"
+      width="686"
+      height="667"
+      class="hero-pattern"
+      aria-hidden="true"
+      class="about-mission-img"
+    />
+  </section>
+
+  <main>
+    <div class="content-divider">
+      <hr class="divider" />
+    </div>
+
+    <section class="values-section" aria-labelledby="why-title">
+      <h2 id="why-title" class="section-title">Why we exist</h2>
+
+      <ul class="values-list">
+        @for (item of companyMission; track item.title) {
+          <li class="value-item">
+            <div class="value-content">
+              <h3 class="value-title">{{ item.title }}</h3>
+              <p class="value-description">{{ item.description }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <div class="content-divider">
+      <hr class="divider" />
+    </div>
+
+    <section class="philosophy-section" aria-labelledby="philosophy-title">
+      <h2 id="philosophy-title" class="section-title">Our food philosophy</h2>
+
+      <ul class="values-list">
+        @for (item of cookingPhilosophy; track item.title) {
+          <li class="value-item">
+            <div class="value-content">
+              <h3 class="value-title">{{ item.title }}</h3>
+              <p class="value-description">{{ item.description }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <div class="content-divider">
+      <hr class="divider" />
+    </div>
+
+    <section class="beyond-section" aria-labelledby="beyond-title">
+      <div class="beyond-content">
+        <h2 id="beyond-title" class="section-title underlined">Beyond the plate</h2>
+        <p class="text-preset-6">
+          We believe food is a catalyst for community and well-being. By sharing approachable
+          recipes, we hope to:
+        </p>
+        <ul class="beyond-list">
+          @for (item of communityImpact; track item) {
+            <li class="beyond-item">
+              <span class="bullet-point" aria-hidden="true"></span>
+              <span class="text-preset-6">{{ item }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </section>
+
+    <app-cta-section class="cta-wrapper" />
+  </main>
+</div>
