@@ -1,0 +1,33 @@
+<article class="recipe-card">
+  <div class="recipe-image-container">
+    @if (recipe().image.small) {
+      <img [ngSrc]="recipe().image.small" [alt]="recipe().title" fill class="recipe-image" />
+    }
+  </div>
+
+  <div class="recipe-content">
+    <h3 class="recipe-title">{{ recipe().title }}</h3>
+
+    <p class="recipe-overview">{{ recipe().overview }}</p>
+
+    <div class="recipe-info">
+      <div class="recipe-info-item">
+        <img ngSrc="/assets/images/icon-servings.svg" alt="" width="16" height="16" />
+        <span>Servings: {{ recipe().servings }}</span>
+      </div>
+      <div class="recipe-info-item">
+        <img ngSrc="/assets/images/icon-prep-time.svg" alt="" width="16" height="16" />
+        <span>Prep: {{ recipe().prepMinutes }} mins</span>
+      </div>
+    </div>
+
+    <div class="recipe-cook-time">
+      <img ngSrc="/assets/images/icon-cook-time.svg" alt="" width="16" height="16" />
+      <span>Cook: {{ recipe().cookMinutes }} min{{ recipe().cookMinutes !== 1 ? 's' : '' }}</span>
+    </div>
+
+    <div class="recipe-action">
+      <a [routerLink]="['/recipes', recipe().slug]" class="recipe-link"> View Recipe </a>
+    </div>
+  </div>
+</article>
