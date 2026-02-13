@@ -1,0 +1,62 @@
+<div class="recipes-page">
+  <section class="header-section">
+    <div class="header-content">
+      <h1 class="page-title">Explore our simple, healthy recipes</h1>
+      <p class="page-description">
+        Discover eight quick, whole-food dishes that fit real-life schedules and taste amazing. Use
+        the search bar to find a recipe by name or ingredient, or simply scroll the list and let
+        something delicious catch your eye.
+      </p>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-controls">
+        <app-filter-dropdown
+          label="Max Prep Time"
+          [options]="prepTimeOptions"
+          [selectedValue]="maximumPrepTime()"
+          (selectionChange)="handleMaxPrepTimeChange($event)"
+        />
+        <app-filter-dropdown
+          label="Max Cook Time"
+          [options]="cookTimeOptions"
+          [selectedValue]="maximumCookTime()"
+          (selectionChange)="handleMaxCookTimeChange($event)"
+        />
+      </div>
+
+      <div class="search-container">
+        <img src="/assets/images/icon-search.svg" alt="" class="search-icon" />
+        <input
+          type="search"
+          placeholder="Search by name or ingredient..."
+          class="search-input"
+          aria-label="Search recipes by name or ingredient"
+          [value]="recipeSearchQuery()"
+          (input)="handleSearchChange($any($event.target).value)"
+        />
+      </div>
+    </div>
+
+    <p class="results-count" aria-live="polite">
+      Showing {{ totalFilteredRecipes() }} of {{ recipes().length }} recipes
+    </p>
+
+    @if (filteredRecipes().length > 0) {
+      <div class="recipes-grid" role="list" aria-label="Recipe list">
+        @for (recipe of filteredRecipes(); track recipe.id) {
+          <div role="listitem">
+            <app-recipe-card [recipe]="recipe" />
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="no-results">
+        <p class="no-results-title">No recipes found</p>
+        <p class="no-results-text">
+          Try adjusting your search or filters to find what you're looking for.
+        </p>
+      </div>
+    }
+  </section>
+</div>
