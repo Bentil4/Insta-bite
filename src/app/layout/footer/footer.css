@@ -3,6 +3,7 @@
   background-color: var(--color-background-cream);
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .footer-container {
@@ -11,12 +12,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20rem;
-  padding: 24px 16px;
+  gap: 2rem;
+  padding: 24px 0;
+  width: 90%;
 }
 
 .footer-nav {
   order: 1;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .social-link {
@@ -48,7 +59,8 @@
   .footer-container {
     flex-direction: row;
     justify-content: space-between;
-    padding: 24px 32px;
+    padding: 24px 0;
+    width: 90%;
   }
 
   .footer-nav {
@@ -76,5 +88,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px 0px;
+    gap: 20rem;
+    width: 90%;
   }
 }

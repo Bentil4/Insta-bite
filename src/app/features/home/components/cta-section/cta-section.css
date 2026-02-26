@@ -5,6 +5,7 @@
   border-radius: 16px;
   background-color: var(--color-cta-bg);
   padding: 48px 16px;
+  width: 90%;
 }
 
 .cta-description {
@@ -67,6 +68,7 @@
   .cta-section {
     margin: 0 32px;
     padding: 80px 0;
+    width: 90%;
   }
 
   .cta-pattern-fork {
@@ -95,6 +97,7 @@
     max-width: var(--max-content-width);
     margin: 0 auto;
     padding: 96px 0;
+    width: 90%;
   }
 
   .cta-pattern-fork {

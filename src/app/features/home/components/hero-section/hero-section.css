@@ -23,7 +23,7 @@
 
 .hero-pattern {
   position: absolute;
-  top: 368px;
+  top: -35%;
   left: 0;
   width: 100%;
   z-index: -10;
@@ -33,13 +33,13 @@
 
 @media (min-width: 768px) {
   .hero-pattern {
-    top: 240px;
+    top: -50%;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-pattern {
-    top: -27px;
+    top: -15%;
   }
 }
 
@@ -151,7 +151,7 @@
 @media (min-width: 768px) {
   .hero-image-container {
     height: 350px;
-    width: 704px;
+    width: 90%;
     box-shadow: 0 0 0 7px rgba(255, 255, 255, 1);
   }
 }
@@ -159,7 +159,7 @@
 @media (min-width: 1024px) {
   .hero-image-container {
     height: 530px;
-    width: 1192px;
+    width: 90%;
     border-radius: 12px;
     box-shadow: 0 0 0 12px rgba(255, 255, 255, 1);
   }

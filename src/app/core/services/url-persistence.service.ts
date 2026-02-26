@@ -11,7 +11,8 @@ export class UrlPersistenceService {
     const queryParams: Record<string, string | null> = {};
 
     for (const [parameterKey, parameterValue] of Object.entries(queryParameters)) {
-      queryParams[parameterKey] = parameterValue !== null && parameterValue !== '' ? String(parameterValue) : null;
+      queryParams[parameterKey] =
+        parameterValue !== null && parameterValue !== '' ? String(parameterValue) : null;
     }
 
     this.router.navigate([], {
