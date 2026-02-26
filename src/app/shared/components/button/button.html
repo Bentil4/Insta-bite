@@ -1,8 +1,3 @@
-<button
-  class="button"
-  [type]="type()"
- 
-  [class]="variantClasses()"
->
+<button [type]="type()" [class]="computeButtonClasses()">
   <ng-content />
 </button>

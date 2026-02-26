@@ -3,22 +3,10 @@
   padding-bottom: 64px;
 }
 
-@media (min-width: 768px) {
-  .recipes-page {
-    padding-bottom: 80px;
-  }
-}
-
 .header-section {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 40px 16px 0;
-}
-
-@media (min-width: 768px) {
-  .header-section {
-    padding: 64px 32px 0;
-  }
 }
 
 .header-content {
@@ -35,12 +23,6 @@
   letter-spacing: -0.84px;
   color: var(--color-primary-dark);
   margin: 0;
-}
-
-@media (min-width: 768px) {
-  .page-title {
-    font-size: 40px;
-  }
 }
 
 .page-description {
@@ -61,26 +43,10 @@
   margin-top: 32px;
 }
 
-@media (min-width: 768px) {
-  .filter-section {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
-  }
-}
-
 .filter-controls {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-@media (min-width: 768px) {
-  .filter-controls {
-    flex-direction: row;
-    gap: 16px;
-  }
 }
 
 .search-container {
@@ -105,12 +71,6 @@
   padding: 10px 16px 10px 40px;
   font-size: 14px;
   color: var(--color-primary-dark);
-}
-
-@media (min-width: 768px) {
-  .search-input {
-    width: 288px;
-  }
 }
 
 .search-input::placeholder {
@@ -139,20 +99,6 @@
   gap: 24px;
 }
 
-@media (min-width: 768px) {
-  .recipes-grid {
-    margin-top: 24px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .recipes-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .no-results {
   margin-top: 40px;
   padding: 64px 0;
@@ -175,4 +121,46 @@
   font-weight: 500;
   letter-spacing: -0.3px;
   color: var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .recipes-page {
+    padding-bottom: 80px;
+  }
+
+  .header-section {
+    padding: 64px 32px 0;
+  }
+
+  .page-title {
+    font-size: 40px;
+  }
+
+  .filter-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .filter-controls {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .search-input {
+    width: 288px;
+  }
+
+  .recipes-grid {
+    margin-top: 24px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

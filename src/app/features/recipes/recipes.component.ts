@@ -24,7 +24,9 @@ export class RecipesComponent {
   private readonly recipeService = inject(RecipeService);
 
   protected readonly recipes = signal(this.recipeService.getAll());
-  protected readonly recipeSearchQuery = signal(this.urlPersistenceService.getQueryParameterAsString('q') ?? '');
+  protected readonly recipeSearchQuery = signal(
+    this.urlPersistenceService.getQueryParameterAsString('q') ?? '',
+  );
   protected readonly maximumPrepTime = signal<number | null>(
     this.urlPersistenceService.getQueryParameterAsNumber('maxPrep'),
   );
@@ -44,9 +46,13 @@ export class RecipesComponent {
       const matchesSearch =
         !searchTerm ||
         recipe.title.toLowerCase().includes(searchTerm) ||
-        recipe.ingredients.some((recipeIngredient) => recipeIngredient.toLowerCase().includes(searchTerm));
-      const matchesPrepTime = maximumPrepMinutes === null || recipe.prepMinutes <= maximumPrepMinutes;
-      const matchesCookTime = maximumCookMinutes === null || recipe.cookMinutes <= maximumCookMinutes;
+        recipe.ingredients.some((recipeIngredient) =>
+          recipeIngredient.toLowerCase().includes(searchTerm),
+        );
+      const matchesPrepTime =
+        maximumPrepMinutes === null || recipe.prepMinutes <= maximumPrepMinutes;
+      const matchesCookTime =
+        maximumCookMinutes === null || recipe.cookMinutes <= maximumCookMinutes;
 
       return matchesSearch && matchesPrepTime && matchesCookTime;
     });

@@ -8,15 +8,15 @@ import RecipeData from '../../../../public/data.json';
 export class RecipeService {
   private readonly recipes: Recipe[] = RecipeData;
 
-  getAll(): Recipe[] {
+  public getAll(): Recipe[] {
     return this.recipes;
   }
 
-  getBySlug(slug: string): Recipe | null {
+  public getBySlug(slug: string): Recipe | null {
     return this.recipes.find((recipe) => recipe.slug === slug) ?? null;
   }
 
-  getRelated(currentRecipeId: number, limit: number = 3): Recipe[] {
+  public getRelated(currentRecipeId: number, limit: number = 3): Recipe[] {
     return this.recipes.filter((recipe) => recipe.id !== currentRecipeId).slice(0, limit);
   }
 }

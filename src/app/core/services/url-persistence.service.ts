@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 export class UrlPersistenceService {
   private readonly router = inject(Router);
 
-  updateQueryParams(queryParameters: Record<string, string | number | null>): void {
+  public updateQueryParams(queryParameters: Record<string, string | number | null>): void {
     const queryParams: Record<string, string | null> = {};
 
     for (const [parameterKey, parameterValue] of Object.entries(queryParameters)) {
@@ -22,12 +22,12 @@ export class UrlPersistenceService {
     });
   }
 
-  getQueryParameterAsString(key: string): string | null {
+  public getQueryParameterAsString(key: string): string | null {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(key);
   }
 
-  getQueryParameterAsNumber(key: string): number | null {
+  public getQueryParameterAsNumber(key: string): number | null {
     const value = this.getQueryParameterAsString(key);
     if (value === null) return null;
     const parsedNumber = Number(value);

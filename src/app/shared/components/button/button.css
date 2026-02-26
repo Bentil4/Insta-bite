@@ -1,25 +1,50 @@
-.button {
+:host {
+  display: inline-block;
+}
+
+button {
   display: inline-flex;
-  cursor: pointer;
   align-items: center;
   justify-content: center;
-  padding: 10px 30px;
-  gap: 0.5rem;
+  gap: 8px;
   border-radius: 10px;
   font-weight: 700;
-  color: var(--color-white);
-  background-color: var(--color-primary-dark);
+  cursor: pointer;
+  border: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.button:hover {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.button:focus {
-  outline-width: 2px;
-  outline-style: solid;
+button:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
   outline-offset: 2px;
-  padding: 10px 29px;
-  outline-color: var(--color-accent-orange);
+}
+
+.btn-primary {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #1e4d45;
+}
+
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
+.btn-secondary:hover {
+  background-color: #f5f5f5;
+}
+
+.btn-default {
+  padding: 12px 16px;
+  font-size: 18px;
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 20px;
 }
