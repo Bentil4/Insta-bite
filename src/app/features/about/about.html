@@ -1,4 +1,4 @@
-<div class="about-page">
+<section class="about-page">
   <section class="mission-section" aria-labelledby="mission-title">
     <div class="mission-content">
       <span class="mission-badge">Our mission</span>
@@ -19,8 +19,8 @@
     <img
       ngSrc="/assets/images/image-about-our-mission-large.webp"
       alt="image-about-our-mission-large"
-      width="686"
       height="667"
+      width="686"
       class="hero-pattern"
       aria-hidden="true"
       class="about-mission-img"
@@ -38,6 +38,12 @@
       <ul class="values-list">
         @for (item of companyMission; track item.title) {
           <li class="value-item">
+            <img
+              src="/assets/images/icon-bullet-point.svg"
+              alt=""
+              class="value-icon"
+              aria-hidden="true"
+            />
             <div class="value-content">
               <h3 class="value-title">{{ item.title }}</h3>
               <p class="value-description">{{ item.description }}</p>
@@ -57,6 +63,12 @@
       <ul class="values-list">
         @for (item of cookingPhilosophy; track item.title) {
           <li class="value-item">
+            <img
+              src="/assets/images/icon-bullet-point.svg"
+              alt=""
+              class="value-icon"
+              aria-hidden="true"
+            />
             <div class="value-content">
               <h3 class="value-title">{{ item.title }}</h3>
               <p class="value-description">{{ item.description }}</p>
@@ -72,7 +84,7 @@
 
     <section class="beyond-section" aria-labelledby="beyond-title">
       <div class="beyond-content">
-        <h2 id="beyond-title" class="section-title underlined">Beyond the plate</h2>
+        <h2 id="beyond-title" class="section-title">Beyond the plate</h2>
         <p class="text-preset-6">
           We believe food is a catalyst for community and well-being. By sharing approachable
           recipes, we hope to:
@@ -86,8 +98,19 @@
           }
         </ul>
       </div>
+      <div class="beyond-image-container">
+        <img
+          ngSrc="/assets/images/image-about-beyond-the-plate-large.webp"
+          alt="image-about-beyond-the-plate-large"
+          height="367"
+          width="686"
+          class="hero-pattern"
+          aria-hidden="true"
+          class="about-beyond-img"
+        />
+      </div>
     </section>
 
     <app-cta-section class="cta-wrapper" />
   </main>
-</div>
+</section>
