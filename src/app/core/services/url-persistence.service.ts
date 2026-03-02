@@ -8,19 +8,21 @@ export class UrlPersistenceService {
   private readonly router = inject(Router);
 
   public updateQueryParams(queryParameters: Record<string, string | number | null>): void {
-    const queryParams: Record<string, string | null> = {};
+  const queryParams: Record<string, string | null> = {};
 
-    for (const [parameterKey, parameterValue] of Object.entries(queryParameters)) {
-      queryParams[parameterKey] =
-        parameterValue !== null && parameterValue !== '' ? String(parameterValue) : null;
-    }
-
-    this.router.navigate([], {
-      queryParams,
-      queryParamsHandling: 'merge',
-      replaceUrl: true,
-    });
+  for (const parameterKey in queryParameters) {
+    const parameterValue = queryParameters[parameterKey];
+    queryParams[parameterKey] =
+      parameterValue !== null && parameterValue !== '' ? String(parameterValue) : null;
   }
+
+  this.router.navigate([], {
+    queryParams,
+    queryParamsHandling: 'merge',
+    replaceUrl: true,
+  });
+}
+
 
   public getQueryParameterAsString(key: string): string | null {
     const urlParams = new URLSearchParams(window.location.search);
